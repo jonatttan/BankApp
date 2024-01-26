@@ -15,4 +15,8 @@ extension URL {
         return URL(string: "\(baseUrl)/api/accounts")
     }
     
+    static func urlForCreateAccounts() -> URL? {
+        return URL(string: "\(baseUrl)/api/accounts")
+    }
+    
 }

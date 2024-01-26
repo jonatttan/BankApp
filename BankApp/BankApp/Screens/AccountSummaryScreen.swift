@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AccountSummaryScreen: View {
     @ObservedObject private var accountSummaryVM = AccountSummaryViewModel()
+    @State private var presentCreateAccountSheet: Bool = false
     
     
     var body: some View {
@@ -27,8 +28,21 @@ struct AccountSummaryScreen: View {
             self.accountSummaryVM.getAllAccounts()
         }
         
+        .toolbar(content: {
+            Button("Add Account") {
+                self.presentCreateAccountSheet = true
+            }
+        })
+        
         .navigationBarTitle("Account Summary")
         .embedInNavigationView()
+        
+        .sheet(isPresented: $presentCreateAccountSheet, onDismiss: {
+            self.accountSummaryVM.getAllAccounts()
+        }) {
+            CreateAccountScreen()
+        }
+        
     }
 }
 

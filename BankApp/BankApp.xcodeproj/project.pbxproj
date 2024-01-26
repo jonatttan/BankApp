@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		096016182B643ADE00B73D94 /* AccountListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096016172B643ADE00B73D94 /* AccountListCell.swift */; };
+		0960161A2B64464D00B73D94 /* CreateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096016192B64464D00B73D94 /* CreateAccountRequest.swift */; };
+		0960161C2B64465D00B73D94 /* CreateAccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960161B2B64465D00B73D94 /* CreateAccountResponse.swift */; };
+		0960161E2B6448EB00B73D94 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960161D2B6448EB00B73D94 /* CreateAccountViewModel.swift */; };
+		096016202B64508700B73D94 /* CreateAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960161F2B64508700B73D94 /* CreateAccountScreen.swift */; };
 		0979D0572B62AE3500C3A207 /* BankAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0979D0562B62AE3500C3A207 /* BankAppApp.swift */; };
 		0979D05B2B62AE3600C3A207 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0979D05A2B62AE3600C3A207 /* Assets.xcassets */; };
 		0979D05F2B62AE3600C3A207 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0979D05E2B62AE3600C3A207 /* Preview Assets.xcassets */; };
@@ -41,6 +45,10 @@
 
 /* Begin PBXFileReference section */
 		096016172B643ADE00B73D94 /* AccountListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListCell.swift; sourceTree = "<group>"; };
+		096016192B64464D00B73D94 /* CreateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRequest.swift; sourceTree = "<group>"; };
+		0960161B2B64465D00B73D94 /* CreateAccountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountResponse.swift; sourceTree = "<group>"; };
+		0960161D2B6448EB00B73D94 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
+		0960161F2B64508700B73D94 /* CreateAccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreen.swift; sourceTree = "<group>"; };
 		0979D0532B62AE3500C3A207 /* BankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0979D0562B62AE3500C3A207 /* BankAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAppApp.swift; sourceTree = "<group>"; };
 		0979D05A2B62AE3600C3A207 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -150,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				0997C3282B62E4E4005406A7 /* Account.swift */,
+				096016192B64464D00B73D94 /* CreateAccountRequest.swift */,
+				0960161B2B64465D00B73D94 /* CreateAccountResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				0997C32A2B62EB02005406A7 /* AccountSummaryViewModel.swift */,
+				0960161D2B6448EB00B73D94 /* CreateAccountViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -166,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				0997C32C2B62FC7F005406A7 /* AccountSummaryScreen.swift */,
+				0960161F2B64508700B73D94 /* CreateAccountScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -309,17 +321,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0960161C2B64465D00B73D94 /* CreateAccountResponse.swift in Sources */,
 				0997C32F2B6300BB005406A7 /* AccountListView.swift in Sources */,
 				0997C3212B62DED3005406A7 /* Double+Extensions.swift in Sources */,
 				0997C3292B62E4E4005406A7 /* Account.swift in Sources */,
+				096016202B64508700B73D94 /* CreateAccountScreen.swift in Sources */,
 				0997C32D2B62FC7F005406A7 /* AccountSummaryScreen.swift in Sources */,
 				0997C31F2B62DDD9005406A7 /* URL+Extensions.swift in Sources */,
 				0997C3232B62E041005406A7 /* String+Extensions.swift in Sources */,
 				0997C32B2B62EB02005406A7 /* AccountSummaryViewModel.swift in Sources */,
 				096016182B643ADE00B73D94 /* AccountListCell.swift in Sources */,
 				0997C3272B62E177005406A7 /* AccountService.swift in Sources */,
+				0960161E2B6448EB00B73D94 /* CreateAccountViewModel.swift in Sources */,
 				0997C3252B62E0B2005406A7 /* View+Extensions.swift in Sources */,
 				0979D0572B62AE3500C3A207 /* BankAppApp.swift in Sources */,
+				0960161A2B64464D00B73D94 /* CreateAccountRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

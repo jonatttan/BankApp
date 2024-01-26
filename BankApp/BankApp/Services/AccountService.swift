@@ -12,7 +12,7 @@ enum NetworkError: Error {
 }
 
 class AccountService {
-    static let share = AccountService()
+    static let shared = AccountService()
     
     private init() {}
     
@@ -40,4 +40,28 @@ class AccountService {
         }.resume()
     }
     
+    func createAccount(createAccountRequest: CreateAccountRequest, completion: @escaping(Result<CreateAccountResponse, NetworkError>) -> Void) {
+        
+        guard let url = URL.urlForCreateAccounts() else {
+            return completion(.failure(.badUrl))
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONEncoder().encode(createAccountRequest)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            guard let data = data, error == nil else {
+                return completion(.failure(.noData))
+            }
+            
+            guard let createAccountResponse = try? JSONDecoder().decode(CreateAccountResponse.self, from: data) else {
+                return completion(.failure(.decodingError))
+            }
+            
+            completion(.success(createAccountResponse))
+        }.resume()
+    }
 }
