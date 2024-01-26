@@ -13,7 +13,7 @@ struct AccountListView: View {
     
     var body: some View {
         List(accounts, id: \.accountId) { account in
-            Text("\(String(account.balance.formatAsCurrency()))")
+            AccountListCell(account: account)
         }
     }
 }

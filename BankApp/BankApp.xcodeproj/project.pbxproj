@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		096016182B643ADE00B73D94 /* AccountListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096016172B643ADE00B73D94 /* AccountListCell.swift */; };
 		0979D0572B62AE3500C3A207 /* BankAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0979D0562B62AE3500C3A207 /* BankAppApp.swift */; };
 		0979D05B2B62AE3600C3A207 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0979D05A2B62AE3600C3A207 /* Assets.xcassets */; };
 		0979D05F2B62AE3600C3A207 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0979D05E2B62AE3600C3A207 /* Preview Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		096016172B643ADE00B73D94 /* AccountListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListCell.swift; sourceTree = "<group>"; };
 		0979D0532B62AE3500C3A207 /* BankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0979D0562B62AE3500C3A207 /* BankAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAppApp.swift; sourceTree = "<group>"; };
 		0979D05A2B62AE3600C3A207 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				0997C32E2B6300BB005406A7 /* AccountListView.swift */,
+				096016172B643ADE00B73D94 /* AccountListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				0997C31F2B62DDD9005406A7 /* URL+Extensions.swift in Sources */,
 				0997C3232B62E041005406A7 /* String+Extensions.swift in Sources */,
 				0997C32B2B62EB02005406A7 /* AccountSummaryViewModel.swift in Sources */,
+				096016182B643ADE00B73D94 /* AccountListCell.swift in Sources */,
 				0997C3272B62E177005406A7 /* AccountService.swift in Sources */,
 				0997C3252B62E0B2005406A7 /* View+Extensions.swift in Sources */,
 				0979D0572B62AE3500C3A207 /* BankAppApp.swift in Sources */,
