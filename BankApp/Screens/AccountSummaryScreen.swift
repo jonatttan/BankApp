@@ -34,7 +34,7 @@ struct AccountSummaryScreen: View {
             }
         })
         
-        .navigationBarTitle("Account Summary")
+        .navigationTitle("Account Summary")
         .embedInNavigationView()
         
         .sheet(isPresented: $presentCreateAccountSheet, onDismiss: {

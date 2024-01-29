@@ -33,7 +33,10 @@ struct CreateAccountScreen: View {
                 }
                 Spacer()
             }
+            Text(self.createAccountVM.errorMessage)
         }
+        .navigationTitle("Add Account")
+        .embedInNavigationView()
     }
 }
 
