@@ -33,7 +33,7 @@ struct AccountListCell_Previews: PreviewProvider {
     
     static var previews: some View {
         let account = Account(id: UUID(),
-                              name: "Sample name",
+                              name: "Sample name", // TODO: - Alocate strings to shared constant struct
                               accountType: .checking,
                               balance: 20.05)
         AccountListCell(account: AccountViewModel(account: account))

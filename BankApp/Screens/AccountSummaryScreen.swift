@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct AccountSummaryScreen: View {
+    
     @ObservedObject private var accountSummaryVM = AccountSummaryViewModel()
     @State private var presentCreateAccountSheet: Bool = false
-    
+    @State private var presentTransferFundSheet: Bool = false
     
     var body: some View {
         VStack {
@@ -20,6 +21,9 @@ struct AccountSummaryScreen: View {
                         .frame(height: g.size.height/2)
                     Text("\(accountSummaryVM.total.formatAsCurrency())")
                     Spacer()
+                    Button("Transfer funds") { // TODO: - Alocate strings to shared constant struct
+                        self.presentTransferFundSheet = true
+                    }.padding()
                 }
             }
         }
@@ -29,12 +33,12 @@ struct AccountSummaryScreen: View {
         }
         
         .toolbar(content: {
-            Button("Add Account") {
+            Button("Add Account") { // TODO: - Alocate strings to shared constant struct
                 self.presentCreateAccountSheet = true
             }
         })
         
-        .navigationTitle("Account Summary")
+        .navigationTitle("Account Summary") // TODO: - Alocate strings to shared constant struct
         .embedInNavigationView()
         
         .sheet(isPresented: $presentCreateAccountSheet, onDismiss: {
@@ -42,8 +46,14 @@ struct AccountSummaryScreen: View {
         }) {
             CreateAccountScreen()
         }
-        
+     
+        .sheet(isPresented: $presentTransferFundSheet, onDismiss: {
+            self.accountSummaryVM.getAllAccounts()
+        }) {
+            TransferFundsScreen()
+        }
     }
+    
 }
 
 

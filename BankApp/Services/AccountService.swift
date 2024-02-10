@@ -38,8 +38,10 @@ class AccountService {
             }
             
         }.resume()
+        
     }
     
+    // TODO: - Alocate strings to shared constant struct
     func createAccount(createAccountRequest: CreateAccountRequest, completion: @escaping(Result<CreateAccountResponse, NetworkError>) -> Void) {
         
         guard let url = URL.urlForCreateAccounts() else {
@@ -51,7 +53,7 @@ class AccountService {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONEncoder().encode(createAccountRequest)
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        URLSession.shared.dataTask(with: request) { data, _, error in
             
             guard let data = data, error == nil else {
                 return completion(.failure(.noData))
@@ -62,6 +64,39 @@ class AccountService {
             }
             
             completion(.success(createAccountResponse))
+            
         }.resume()
+        
+    }
+    
+    // TODO: - Allocate strings to shared constant struct
+    func transferFunds(transferFundRequest: TransferFundRequest, completion: @escaping(Result<TransferFundsResponse, NetworkError>) -> Void) {
+        
+        guard let url = URL.urlForTransferFunds() else {
+            return completion(.failure(.badUrl))
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.httpBody = try? JSONEncoder().encode(transferFundRequest)
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+            
+            guard let data = data, error == nil else {
+                return completion(.failure(.noData))
+            }
+            
+            // TODO: - Could it be a guard?
+            let transferFundResponse = try? JSONDecoder().decode(TransferFundsResponse.self, from: data)
+            
+            if let transferFundResponse = transferFundResponse {
+                completion(.success(transferFundResponse))
+            } else {
+                completion(.failure(.decodingError))
+            }
+            
+        }.resume()
+        
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 extension URL {
     
-    private static let baseUrl: String = "https://bloom-miniature-basin.glitch.me"
+    private static let baseUrl: String = "https://sharp-extreme-haze.glitch.me"
     
     static func urlForAccounts() -> URL? {
         return URL(string: "\(baseUrl)/api/accounts")
@@ -19,4 +19,7 @@ extension URL {
         return URL(string: "\(baseUrl)/api/accounts")
     }
     
+    static func urlForTransferFunds() -> URL? {
+        return URL(string: "\(baseUrl)/api/transfer")
+    }
 }
