@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+fileprivate struct ConstantValues {
+    static let screenDivisorValue: CGFloat = 2
+}
+
 struct AccountSummaryScreen: View {
     
     @ObservedObject private var accountSummaryVM = AccountSummaryViewModel()
@@ -18,10 +22,10 @@ struct AccountSummaryScreen: View {
             GeometryReader { g in
                 VStack {
                     AccountListView(accounts: accountSummaryVM.accounts)
-                        .frame(height: g.size.height/2)
+                        .frame(height: g.size.height/ConstantValues.screenDivisorValue)
                     Text("\(accountSummaryVM.total.formatAsCurrency())")
                     Spacer()
-                    Button("Transfer funds") { // TODO: - Alocate strings to shared constant struct
+                    Button(Localizable.transferFundsButtonText.value) {
                         self.presentTransferFundSheet = true
                     }.padding()
                 }
@@ -33,12 +37,12 @@ struct AccountSummaryScreen: View {
         }
         
         .toolbar(content: {
-            Button("Add Account") { // TODO: - Alocate strings to shared constant struct
+            Button(Localizable.addAccountButtonText.value) {
                 self.presentCreateAccountSheet = true
             }
         })
         
-        .navigationTitle("Account Summary") // TODO: - Alocate strings to shared constant struct
+        .navigationTitle(Localizable.summaryScreenTitle.value)
         .embedInNavigationView()
         
         .sheet(isPresented: $presentCreateAccountSheet, onDismiss: {

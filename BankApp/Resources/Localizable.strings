@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  BankApp
+
+  Created by Jonattan Sousa on 11/02/24.
+  
+*/
+
+// MARK: - AccountSummaryScreen
+"summary_screen_title" = "Account Summary";
+"transfer_funds_button_text" = "Transfer funds";
+"add_account_button_text" = "Add Account";
+
+// MARK: - CreateAccountScreen
+"create_account_screen_title" = "Add Account";
+"placeholder_name" = "Name";
+"placeholder_balance" = "Balance";
+"submit_button_text" = "Submit";
+
+// MARK: - TransferFundsScreen
+"transfer_funds_screen_title" = "Transfer Funds";
+"submit_transfer_button_text" = "Submit transfer";
+"action_sheet_title" = "Transfer funds";
+"action_sheet_message" = "Chose an option";
+
+// MARK: - TransferFundsAccountSelectionView
+"from_button_text" = "From";
+"to_button_text" = "To";
+"amount_placeholder" = "Amount";
+
+// MARK: - HTTP Headers value
+"application_json" = "application/json";
+"content_type" = "Content-Type";
+
+// MARK: - TransferFoundsViewModel
+"invalid_amount_message" = "Invalid amount";

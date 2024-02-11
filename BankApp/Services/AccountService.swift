@@ -11,6 +11,10 @@ enum NetworkError: Error {
     case badUrl, noData, decodingError
 }
 
+enum HTTPMethod: String {
+    case POST
+}
+
 class AccountService {
     static let shared = AccountService()
     
@@ -41,19 +45,19 @@ class AccountService {
         
     }
     
-    // TODO: - Alocate strings to shared constant struct
     func createAccount(createAccountRequest: CreateAccountRequest, completion: @escaping(Result<CreateAccountResponse, NetworkError>) -> Void) {
         
         guard let url = URL.urlForCreateAccounts() else {
             return completion(.failure(.badUrl))
         }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = try? JSONEncoder().encode(createAccountRequest)
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = HTTPMethod.POST.rawValue
+        urlRequest.addValue(Localizable.applicationJson.value,
+                         forHTTPHeaderField: Localizable.contentType.value)
+        urlRequest.httpBody = try? JSONEncoder().encode(createAccountRequest)
         
-        URLSession.shared.dataTask(with: request) { data, _, error in
+        URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             
             guard let data = data, error == nil else {
                 return completion(.failure(.noData))
@@ -69,7 +73,6 @@ class AccountService {
         
     }
     
-    // TODO: - Allocate strings to shared constant struct
     func transferFunds(transferFundRequest: TransferFundRequest, completion: @escaping(Result<TransferFundsResponse, NetworkError>) -> Void) {
         
         guard let url = URL.urlForTransferFunds() else {
@@ -77,8 +80,9 @@ class AccountService {
         }
         
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.httpMethod = HTTPMethod.POST.rawValue
+        urlRequest.addValue(Localizable.applicationJson.value,
+                         forHTTPHeaderField: Localizable.contentType.value)
         urlRequest.httpBody = try? JSONEncoder().encode(transferFundRequest)
         
         URLSession.shared.dataTask(with: urlRequest) { data, _, error in

@@ -7,6 +7,10 @@
 
 import Foundation
 
+fileprivate struct ConstantValues {
+    static let minAmountValue: Double = 1
+}
+
 class TransferFundsViewModel: ObservableObject {
     
     var fromAccount: AccountViewModel?
@@ -20,7 +24,7 @@ class TransferFundsViewModel: ObservableObject {
         guard let amount = Double(amount) else {
             return false
         }
-        return (amount > 0)
+        return (amount >= ConstantValues.minAmountValue)
     }
     
     // TODO: - Refactor to use guard
@@ -49,7 +53,7 @@ class TransferFundsViewModel: ObservableObject {
     }
     
     private func isValid() -> Bool {
-        message = "Invalid amount" // TODO: - Alocate strings to shared constant struct
+        message = Localizable.invalidAmountMessage.value
         return isAmountValid
     }
     
@@ -102,6 +106,7 @@ class TransferFundsViewModel: ObservableObject {
                 }
             }
         }
+        
     }
     
 }
