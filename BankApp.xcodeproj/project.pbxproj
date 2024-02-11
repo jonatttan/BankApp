@@ -29,6 +29,8 @@
 		09D050292B74512C00CCACD4 /* TransferFundsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D050282B74512C00CCACD4 /* TransferFundsViewModel.swift */; };
 		09D0502B2B75008200CCACD4 /* TransferFundsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D0502A2B75008200CCACD4 /* TransferFundsScreen.swift */; };
 		09D0502D2B76511B00CCACD4 /* TransferFundsAccountSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D0502C2B76511B00CCACD4 /* TransferFundsAccountSelectionView.swift */; };
+		09D050302B78DC7C00CCACD4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09D0502F2B78DC7C00CCACD4 /* Localizable.strings */; };
+		09D050322B78DE2500CCACD4 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D050312B78DE2500CCACD4 /* Localizable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		09D050282B74512C00CCACD4 /* TransferFundsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferFundsViewModel.swift; sourceTree = "<group>"; };
 		09D0502A2B75008200CCACD4 /* TransferFundsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferFundsScreen.swift; sourceTree = "<group>"; };
 		09D0502C2B76511B00CCACD4 /* TransferFundsAccountSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferFundsAccountSelectionView.swift; sourceTree = "<group>"; };
+		09D0502F2B78DC7C00CCACD4 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		09D050312B78DE2500CCACD4 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 		0979D0552B62AE3500C3A207 /* BankApp */ = {
 			isa = PBXGroup;
 			children = (
+				09D0502E2B78DC5C00CCACD4 /* Resources */,
 				0997C3182B62AFD1005406A7 /* Services */,
 				0997C3192B62AFDB005406A7 /* Extensions */,
 				0997C31A2B62AFE9005406A7 /* Models */,
@@ -204,6 +209,15 @@
 				09D0502C2B76511B00CCACD4 /* TransferFundsAccountSelectionView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		09D0502E2B78DC5C00CCACD4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				09D0502F2B78DC7C00CCACD4 /* Localizable.strings */,
+				09D050312B78DE2500CCACD4 /* Localizable.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0979D05F2B62AE3600C3A207 /* Preview Assets.xcassets in Resources */,
+				09D050302B78DC7C00CCACD4 /* Localizable.strings in Resources */,
 				0979D05B2B62AE3600C3A207 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0960161C2B64465D00B73D94 /* CreateAccountResponse.swift in Sources */,
+				09D050322B78DE2500CCACD4 /* Localizable.swift in Sources */,
 				0997C32F2B6300BB005406A7 /* AccountListView.swift in Sources */,
 				09D050292B74512C00CCACD4 /* TransferFundsViewModel.swift in Sources */,
 				09D050272B68395E00CCACD4 /* TransferFundsResponse.swift in Sources */,

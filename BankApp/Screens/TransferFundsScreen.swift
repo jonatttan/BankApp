@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+fileprivate struct ConstantValues {
+    static let accountListViewHeight: CGFloat = 200
+}
+
 struct TransferFundsScreen: View {
     
     @Environment(\.presentationMode) private var presentationMode
@@ -32,9 +36,9 @@ struct TransferFundsScreen: View {
         ScrollView {
             VStack {
                 AccountListView(accounts: transferFundsVM.accounts)
-                    .frame(height: 200) // TODO: - Alocate in the enum to sizes/ spacing
+                    .frame(height: ConstantValues.accountListViewHeight)
                 TransferFundsAccountSelectionView(transferFundsVM: transferFundsVM,
-                                                  showSheet: $isShowSheet, 
+                                                  showSheet: $isShowSheet,
                                                   isFromAccount: $isFromAccount)
                 Spacer()
                 
@@ -44,19 +48,19 @@ struct TransferFundsScreen: View {
                 
                 Text(transferFundsVM.message ?? .empty)
                 
-                Button("Submit transfer") { // TODO: Alocate in the struct of strings
+                Button(Localizable.submitTransferButtonText.value) {
                     transferFundsVM.submitTransfer() {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }.padding()
                     .actionSheet(isPresented: $isShowSheet) {
-                        ActionSheet(title: Text("Transfer funds"), // TODO: Alocate in the struct of strings
-                                    message: Text("Chose an option"), // TODO: Alocate in the struct of strings
+                        ActionSheet(title: Text(Localizable.actionSheetTitle.value),
+                                    message: Text(Localizable.actionSheetMessage.value),
                                     buttons: actionSheetButtons)
                     }
             }
         }
-        .navigationBarTitle("Transfer Funds") // TODO: - Alocate strings to shared constant struct
+        .navigationBarTitle(Localizable.transferFundsScreenTitle.value)
         .embedInNavigationView()
     }
 }

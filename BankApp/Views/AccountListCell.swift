@@ -7,18 +7,23 @@
 
 import SwiftUI
 
+fileprivate struct ConstantValues {
+    static let verticalSpacingValue: CGFloat = 10
+    static let opacityForAccountType: Double = 0.5
+}
+
 struct AccountListCell: View {
     
     let account: AccountViewModel
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: ConstantValues.verticalSpacingValue) {
                 Text(account.name)
                     .font(.headline)
                 
                 Text(account.accountType)
-                    .opacity(0.5)
+                    .opacity(ConstantValues.opacityForAccountType)
             }
             Spacer()
             Text("\(account.balance.formatAsCurrency())")

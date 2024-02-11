@@ -14,17 +14,17 @@ struct CreateAccountScreen: View {
     
     var body: some View {
         Form {
-            TextField("Name", text: $createAccountVM.name)
+            TextField(Localizable.placeholderName.value, text: $createAccountVM.name)
             Picker(selection: $createAccountVM.accountType, label: EmptyView()) {
                 ForEach(AccountType.allCases, id: \.self) { accountType in
                     Text(accountType.title).tag(accountType)
                 }
             }.pickerStyle(.palette)
-            TextField("Balance", text: $createAccountVM.balance)
+            TextField(Localizable.placeholderBalance.value, text: $createAccountVM.balance)
             
             HStack {
                 Spacer()
-                Button("Submit") {
+                Button(Localizable.submitButtonText.value) {
                     self.createAccountVM.createAccount { success in
                         if success {
                             self.dismiss()
@@ -35,7 +35,7 @@ struct CreateAccountScreen: View {
             }
             Text(self.createAccountVM.errorMessage)
         }
-        .navigationTitle("Add Account")
+        .navigationTitle(Localizable.createAccountScreenTitle.value)
         .embedInNavigationView()
     }
 }

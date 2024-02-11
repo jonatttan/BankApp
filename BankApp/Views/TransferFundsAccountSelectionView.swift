@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+fileprivate struct ConstantValues {
+    static let verticalSpacingValue: CGFloat = 10
+    static let opacityForDisableButton: Double = 0.5
+    static let opacityForEnableButton: Double = 1.0
+}
+
 struct TransferFundsAccountSelectionView: View {
     
     @ObservedObject var transferFundsVM: TransferFundsViewModel
@@ -14,8 +20,8 @@ struct TransferFundsAccountSelectionView: View {
     @Binding var isFromAccount: Bool
     
     var body: some View {
-        VStack(spacing: 10) {
-            Button("From \(transferFundsVM.fromAccountType)") { // TODO: - Alocate strings to shared constant struct
+        VStack(spacing: ConstantValues.verticalSpacingValue) {
+            Button("\(Localizable.fromButtonText.value) \(transferFundsVM.fromAccountType)") {
                 self.isFromAccount = true
                 self.showSheet = true
             }
@@ -24,7 +30,7 @@ struct TransferFundsAccountSelectionView: View {
             .background(Color.green)
             .foregroundColor(Color.white)
             
-            Button("To \(transferFundsVM.toAccountType)") { // TODO: - Alocate strings to shared constant struct
+            Button("\(Localizable.toButtonText.value) \(transferFundsVM.toAccountType)") {
                 self.isFromAccount = false
                 self.showSheet = true
             }
@@ -32,10 +38,11 @@ struct TransferFundsAccountSelectionView: View {
             .frame(maxWidth: .infinity)
             .background(Color.green)
             .foregroundColor(Color.white)
-            .opacity(self.transferFundsVM.fromAccount == nil ? 0.5 : 1.0)
+            .opacity(self.transferFundsVM.fromAccount == nil ? ConstantValues.opacityForDisableButton :
+                        ConstantValues.opacityForEnableButton)
             .disabled(self.transferFundsVM.fromAccount == nil)
             
-            TextField("Amount", text: self.$transferFundsVM.amount) // TODO: - Alocate strings to shared constant struct
+            TextField(Localizable.amountPlaceholder.value, text: self.$transferFundsVM.amount)
                 .textFieldStyle(.roundedBorder)
         }.padding()
     }
