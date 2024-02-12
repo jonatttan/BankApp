@@ -8,4 +8,4 @@ This app allows create and list accounts with name, type and amount, in addition
 
 ## And the API?
 
-The [API](https://glitch.com/edit/#!/sharp-extreme-haze) was developed in the JavaScript on the Node.js platform, using Express.js framework.
+The [API](https://github.com/jonatttan/BankAppServer) was developed in the JavaScript on the Node.js platform, using Express.js framework.
